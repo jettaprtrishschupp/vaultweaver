@@ -1,0 +1,30 @@
+{
+  "index": {
+    "markdown-tips.md": {
+      "links": [
+        "Zettelkasten Basics"
+      ],
+      "tags": [
+        "markdown",
+        "notes"
+      ]
+    },
+    "zettelkasten-basics.md": {
+      "links": [
+        "Markdown Tips"
+      ],
+      "tags": [
+        "method",
+        "notes"
+      ]
+    }
+  },
+  "graph": {
+    "markdown-tips.md": [
+      "zettelkasten-basics.md"
+    ],
+    "zettelkasten-basics.md": [
+      "markdown-tips.md"
+    ]
+  }
+}
