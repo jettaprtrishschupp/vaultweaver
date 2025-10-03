@@ -1,3 +1,4 @@
+from datetime import datetime, UTC
 import os, sys, random, re, subprocess
 from datetime import datetime
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
@@ -75,7 +76,7 @@ def delete_snippet(text, name, blocks):
     s, e = blocks[name]; return text[:s] + text[e:]
 
 def minor_tweak(path):
-    stamp = f"# tweak {datetime.utcnow().isoformat()}\n"
+    stamp = f"# tweak {datetime.now(datetime.UTC).isoformat()}\n"
     with open(path, "a", encoding="utf-8") as f: f.write(stamp)
     return f"Minor tweak in {os.path.relpath(path, ROOT)}"
 
@@ -96,7 +97,7 @@ def choose_action_and_apply(snippets, targets):
             new, _ = insert_snippet(txt, code)
         open(target, "w", encoding="utf-8").write(new)
         return f"{'Replaced' if name in blocks else 'Added'} snippet '{name}' in {os.path.relpath(target, ROOT)}"
-    open(target, "a", encoding="utf-8").write(f"\n# autosave {datetime.utcnow().isoformat()}\n")
+    open(target, "a", encoding="utf-8").write(f"\n# autosave {datetime.now(datetime.UTC).isoformat()}\n")
     return f"Touched {os.path.relpath(target, ROOT)} (no snippet change)"
 
 def check_syntax():
