@@ -36,3 +36,5 @@ bookmarks/**
 .env
 *.env
 .env.*
+.cron.lock
+auto_updater/updater.py.bak.*
