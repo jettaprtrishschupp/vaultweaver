@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
+# random jitter up to 10 minutes
+JITTER_MAX=1800
+sleep $((RANDOM % JITTER_MAX))
 # 1) подгружаем .env
 set -a
 [ -f "$HOME/.env" ] && . "$HOME/.env"
