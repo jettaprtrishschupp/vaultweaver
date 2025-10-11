@@ -30,6 +30,13 @@ def list_days() -> List[str]:
     ensure_dir()
     return sorted([f for f in os.listdir(BM_DIR) if f.endswith(".json")])
 
+
+# --- snippet: safe_join ---
+def safe_join(base: str, *parts: str) -> str:
+    import os
+    return os.path.normpath(os.path.join(base, *parts))
+# --- endsnippet ---
+
 def read_day(filename: str) -> Optional[dict]:
     p = os.path.join(BM_DIR, filename)
     return json.load(open(p, "r", encoding="utf-8")) if os.path.exists(p) else None
