@@ -7,5 +7,11 @@ def safe_join(base: str, *parts: str) -> str:
     return os.path.normpath(os.path.join(base, *parts))
 # --- endsnippet ---
 
+
+# --- snippet: clamp_len ---
+def clamp_len(s: str, n: int = 280) -> str:
+    return s if len(s) <= n else s[:n-1] + "…"
+# --- endsnippet ---
+
 def extract_headings(md_text: str):
     return [(m.group(1), m.group(2).strip()) for m in HEADING_RX.finditer(md_text or "")]
