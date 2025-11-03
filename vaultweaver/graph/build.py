@@ -39,3 +39,10 @@ def build_graph() -> Dict[str, List[str]]:
             if target and target != fn and target in g:
                 g[fn].append(target)
     return g
+
+# --- snippet: safe_join ---
+def safe_join(base: str, *parts: str) -> str:
+    import os
+    return os.path.normpath(os.path.join(base, *parts))
+# --- endsnippet ---
+
