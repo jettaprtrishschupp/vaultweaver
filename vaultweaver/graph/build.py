@@ -41,6 +41,12 @@ def build_graph() -> Dict[str, List[str]]:
     return g
 
 # --- snippet: safe_join ---
+
+# --- snippet: clamp_len ---
+def clamp_len(s: str, n: int = 280) -> str:
+    return s if len(s) <= n else s[:n-1] + "…"
+# --- endsnippet ---
+
 def safe_join(base: str, *parts: str) -> str:
     import os
     return os.path.normpath(os.path.join(base, *parts))
