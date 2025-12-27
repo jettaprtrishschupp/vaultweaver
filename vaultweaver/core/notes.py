@@ -20,10 +20,7 @@ def slugify(s: str) -> str:
     return s or "note"
 
 
-# --- snippet: clamp_len ---
-def clamp_len(s: str, n: int = 280) -> str:
-    return s if len(s) <= n else s[:n-1] + "…"
-# --- endsnippet ---
+
 
 def list_notes() -> List[str]:
     ensure_dirs()
