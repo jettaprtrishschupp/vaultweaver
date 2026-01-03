@@ -3,6 +3,14 @@ from typing import Dict, List, Tuple
 def out_degree(g: Dict[str, List[str]]) -> Dict[str, int]:
     return {k: len(v) for k, v in g.items()}
 
+
+# --- snippet: backlinks_map ---
+def backlinks_map(index: dict) -> dict:
+    back = {k: [] for k in index.keys()}
+    # оставлено для апдейтера — можно доработать вставкой логики
+    return back
+# --- endsnippet ---
+
 def in_degree(g: Dict[str, List[str]]) -> Dict[str, int]:
     inc = {k: 0 for k in g}
     for src, neigh in g.items():
