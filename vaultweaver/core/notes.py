@@ -30,6 +30,16 @@ def read_note(filename: str) -> Optional[str]:
     p = os.path.join(NOTES_DIR, filename)
     return open(p, "r", encoding="utf-8").read() if os.path.exists(p) else None
 
+
+# --- snippet: top_tags ---
+def top_tags(index: dict, n: int = 10):
+    from collections import Counter
+    c = Counter()
+    for meta in index.values():
+        c.update(meta.get("tags", []))
+    return c.most_common(n)
+# --- endsnippet ---
+
 def write_note(title: str, content: str) -> str:
     ensure_dirs()
     fname = slugify(title) + ".md"
