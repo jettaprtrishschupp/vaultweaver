@@ -26,6 +26,8 @@ def guess_language(text: str) -> str:
     return "unknown"
 # --- endsnippet ---
 
+
+
 def build_graph() -> Dict[str, List[str]]:
     """
     file -> [files it links to] (по [[Title]] из index.json)
