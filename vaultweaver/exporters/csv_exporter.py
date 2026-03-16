@@ -5,6 +5,13 @@ ROOT = os.path.dirname(os.path.dirname(__file__))
 BASE = os.path.dirname(ROOT)
 REPORTS_DIR = os.path.join(BASE, "reports")
 
+
+# --- snippet: safe_join ---
+def safe_join(base: str, *parts: str) -> str:
+    import os
+    return os.path.normpath(os.path.join(base, *parts))
+# --- endsnippet ---
+
 def export_tags_csv() -> str:
     os.makedirs(REPORTS_DIR, exist_ok=True)
     idx = load_index()
