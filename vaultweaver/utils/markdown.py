@@ -15,3 +15,13 @@ def clamp_len(s: str, n: int = 280) -> str:
 
 def extract_headings(md_text: str):
     return [(m.group(1), m.group(2).strip()) for m in HEADING_RX.finditer(md_text or "")]
+
+# --- snippet: top_tags ---
+def top_tags(index: dict, n: int = 10):
+    from collections import Counter
+    c = Counter()
+    for meta in index.values():
+        c.update(meta.get("tags", []))
+    return c.most_common(n)
+# --- endsnippet ---
+
