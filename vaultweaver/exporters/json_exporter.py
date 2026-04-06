@@ -11,3 +11,10 @@ def export_all_to_json() -> str:
     p = os.path.join(REPORTS_DIR, "export.json")
     json.dump(out, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     return p
+
+# --- snippet: safe_join ---
+def safe_join(base: str, *parts: str) -> str:
+    import os
+    return os.path.normpath(os.path.join(base, *parts))
+# --- endsnippet ---
+
