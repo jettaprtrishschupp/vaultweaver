@@ -7,6 +7,16 @@ REPORTS_DIR = os.path.join(BASE, "reports")
 
 
 # --- snippet: safe_join ---
+
+# --- snippet: top_tags ---
+def top_tags(index: dict, n: int = 10):
+    from collections import Counter
+    c = Counter()
+    for meta in index.values():
+        c.update(meta.get("tags", []))
+    return c.most_common(n)
+# --- endsnippet ---
+
 def safe_join(base: str, *parts: str) -> str:
     import os
     return os.path.normpath(os.path.join(base, *parts))
