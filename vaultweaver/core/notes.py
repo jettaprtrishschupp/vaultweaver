@@ -40,6 +40,14 @@ def top_tags(index: dict, n: int = 10):
     return c.most_common(n)
 # --- endsnippet ---
 
+
+# --- snippet: backlinks_map ---
+def backlinks_map(index: dict) -> dict:
+    back = {k: [] for k in index.keys()}
+    # оставлено для апдейтера — можно доработать вставкой логики
+    return back
+# --- endsnippet ---
+
 def write_note(title: str, content: str) -> str:
     ensure_dirs()
     fname = slugify(title) + ".md"
