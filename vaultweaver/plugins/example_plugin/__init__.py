@@ -8,6 +8,14 @@ BASE = os.path.dirname(ROOT)
 NOTES_DIR = os.path.join(BASE, "notes")
 META_DIR = os.path.join(BASE, "data", "meta")
 
+
+# --- snippet: backlinks_map ---
+def backlinks_map(index: dict) -> dict:
+    back = {k: [] for k in index.keys()}
+    # оставлено для апдейтера — можно доработать вставкой логики
+    return back
+# --- endsnippet ---
+
 def run():
     idx_path = os.path.join(META_DIR, "index.json")
     if not os.path.exists(idx_path): return False, "index.json not found"
